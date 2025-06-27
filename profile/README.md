@@ -43,7 +43,7 @@ Our work is built on open collaboration, and we welcome you to join us!
 If our tools have improved your macOS experience, please consider supporting our work. Your sponsorship helps us cover development costs and dedicate more time to building and maintaining these projects for everyone.
 
 <p align="center">
-  <strong>Or via Bitcoin (BTC)</strong><br>
+  <strong>via Bitcoin (BTC)</strong><br>
   <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=bc1qzjph5qxyl8qalt3ywx60vysmyf5qwc4rpz68gy" alt="Bitcoin Donation QR Code" width="150">
   <br>
   <code style="word-wrap: break-word;">bc1qzjph5qxyl8qalt3ywx60vysmyf5qwc4rpz68gy</code>
