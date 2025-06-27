@@ -1,4 +1,4 @@
-name: Update README Repositories
+name: Update README with Repo List
 
 on:
   schedule:
@@ -9,28 +9,27 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    name: Update-Repos-List
+    name: Update-Repo-List
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Update Repos List
-        uses: LitoMore/github-profile-repo-list@v1
+      - name: Generate Repo List
+        uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
-          # Your GitHub username or organization name
-          username: 'apexmacworkshop'
-          # A personal access token with 'repo' scope
-          token: ${{ secrets.GITHUB_TOKEN }}
-          # The headline of the repo list
-          headline: ' ' # Leaving this blank for a cleaner look
-          # The file to update
-          readme_path: 'profile/README.md'
-          # The template for each repository
-          template: '- 🏛️ **[{{repo.name}}]({{repo.html_url}})**: {{repo.description}}'
-          # The max number of repositories to list
-          max_count: 30
-          # The sort key ('pushed', 'created', 'updated', 'full_name')
-          sort_by: 'pushed'
-          # Repositories to exclude, separated by commas
-          exclude_repos: '.github'
+          user: 'apexmacworkshop'
+          my_token: ${{ secrets.GITHUB_TOKEN }}
+          block_list: '.github'
+          max_page: 5
+          template: '- 🏛️ **[%name%](%url%)**: %description%' 
+
+      - name: Insert Repo List into README
+        run: |
+          sed -i '/<!--REPOS_LIST_START-->/r repo-list.md' profile/README.md
+          sed -i '/<!--REPOS_LIST_START-->/,/<!--REPOS_LIST_END-->/{//!d}' profile/README.md
+
+      - name: Commit and Push Changes
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore: Update repository list"
+          file_pattern: 'profile/README.md'
