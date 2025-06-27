@@ -26,8 +26,6 @@ We're a small, passionate team of developers dedicated to the Mac ecosystem. We 
 We maintain a collection of tools and resources to help you get the most out of your Mac. Here's a list of our public repositories:
 
 <!--REPOS_LIST_START-->
-<!-- The list of repos will be automatically inserted here by a GitHub Action -->
-<table_here>
 <!--REPOS_LIST_END-->
 
 
