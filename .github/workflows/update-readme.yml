@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Update Repos List
-        uses: LitoMore/github-profile-repo-list@v1.1.0
+        uses: LitoMore/github-profile-repo-list@v1
         with:
           # Your GitHub username or organization name
           username: 'apexmacworkshop'
