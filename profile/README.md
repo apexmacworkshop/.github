@@ -35,7 +35,7 @@ We maintain a collection of tools and resources to help you get the most out of 
 
 Our work is built on open collaboration, and we welcome you to join us!
 
-*   **Get Help:** Have a question or need support? Contact us via email "apexmacworkshop@outlook.com" <apexmacworkshop@outlook.com>
+*   **Get Help:** Have a question or need support? Contact us via email <apexmacworkshop@outlook.com>
 *   **Report a Bug:** Found an issue? Please open a ticket in the specific repository where you found the bug.
 
 ## 💖 Support Our Work
