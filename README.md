@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://avatars.githubusercontent.com/u/44621449?s=280&v=4" alt="Apex Mac Workshop Logo" width="180"/>
+  <img src="https://avatars.githubusercontent.com/u/216883863?s=400&u=13cb8ae14d303252a2b2553ee0b188b7596c0ca0&v=4" alt="Apex Mac Workshop Logo" width="180"/>
 </p>
 
 <h1 align="center">
