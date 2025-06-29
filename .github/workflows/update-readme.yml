@@ -2,34 +2,59 @@ name: Update README with Repo List
 
 on:
   schedule:
-    # Runs once a day at midnight
+    # Runs once a day at midnight UTC
     - cron: "0 0 * * *"
   workflow_dispatch:
 
 jobs:
-  build:
+  update-repo-list:
     runs-on: ubuntu-latest
-    name: Update-Repo-List
+    name: Update Repository List
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Generate Repo List
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Generate Repository List
         uses: yi-Xu-0100/repo-list-generator@v1.1.1
         with:
           user: 'apexmacworkshop'
           my_token: ${{ secrets.GITHUB_TOKEN }}
           block_list: '.github'
           max_page: 5
-          template: '- 🏛️ **[%name%](%url%)**: %description%' 
+          template: '- 🏛️ **[%name%](%url%)**: %description%'
+          output: './repo-list.md'
 
-      - name: Insert Repo List into README
+      - name: Update README with Repository List
         run: |
-          sed -i '/<!--REPOS_LIST_START-->/r repo-list.md' profile/README.md
-          sed -i '/<!--REPOS_LIST_START-->/,/<!--REPOS_LIST_END-->/{//!d}' profile/README.md
+          # Ensure README exists
+          if [ ! -f profile/README.md ]; then
+            echo "Error: profile/README.md not found"
+            exit 1
+          fi
+          # Check if repo-list.md was generated
+          if [ ! -f repo-list.md ]; then
+            echo "Error: repo-list.md not generated"
+            exit 1
+          fi
+          # Insert repo list between markers
+          sed -i '/<!--REPOS_LIST_START-->/,/<!--REPOS_LIST_END-->/ {
+            /<!--REPOS_LIST_START-->/ r repo-list.md
+            /<!--REPOS_LIST_START-->/! { /<!--REPOS_LIST_END-->/! d }
+          }' profile/README.md
 
       - name: Commit and Push Changes
-        uses: stefanzweifel/git-auto-commit-action@v4
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore: Update repository list"
+          commit_message: "chore: update repository list in README"
           file_pattern: 'profile/README.md'
+          commit_user_name: 'github-actions[bot]'
+          commit_user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_author: 'github-actions[bot] <github-actions[bot]@users.noreply.github.com>'
