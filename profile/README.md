@@ -18,7 +18,7 @@ We're a small, passionate team of developers dedicated to the Mac ecosystem. We 
 
 ### 👨‍💻 Meet the Team
 *   **Gordon H.** ([@Ziqian-Huang](https://github.com/Ziqian-Huang0607)) - Founder & Developer 🛠️
-*   **Will C.** ([@Will-C](https://github.com/WillUHD)) - Developer ⚙️
+*   **Will C.(Former Member)** ([@Will-C](https://github.com/WillUHD)) - Former Developer(None Projects) ⚙️
 *   **Julie** - ([@SUPER-Julie](https://github.com/SUPER-Julie)) Developer 💡
 
 ## 🚀 Our Projects
